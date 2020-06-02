@@ -1,0 +1,47 @@
+JSON czyli JavaScript Object Notation - format wymiany danych w œrodowisku internetowym. JSON, podobnie jak inne struktury s³u¿¹ce do przechowywania danych takich jak np. XML, ma szerokie zastosowanie.
+Najczêœciej jednak jest wykorzystywany do przekazywania i odbierania danych z serwera przez aplikacje na stronie internetowej.
+
+ZADANIA: 
+
+Zmieniono
+ @RequestMapping("/greeting") na @RequestMapping("/bye") w klasie GreetingController 
+
+//
+Dodano 
+private final AtomicLong nextCounter = new AtomicLong();
+@RequestMapping("/nowy")
+
+public Greeting greetno(@RequestParam(value = "wiek", defaultValue = "22") int wiek){
+		return new Greeting(nextCounter.incrementAndGet(), String.format(template, wiek));
+	}
+
+//
+Zmieniono publci public Greeting greeting na:
+
+public Greeting greeting (@RequestParam(value = "wiek", defaultValue="30") String wiek,
+			@RequestParam(value = "imie", defaultValue="Anna") String imie, String kto)
+{
+		if (imie.charAt(imie.length()-1)=='a'){
+			kto="kobieta";
+}
+		else{
+			kto="mezczyzna";
+}
+	return new Greeting(counter.incrementAndGet(), String.format(template,wiek,imie,kto));
+}
+
+//
+Zmieniono public Greeting gretno na:
+public Greeting greetno(@RequestParam(value = "wzorzec" , defaultValue = "lala") String imie, String zawiera){
+		if (imie.length() == 10) 
+{
+	zawiera = "zawiera!";
+}
+else {
+	zawiera="nie zawiera!";
+}
+		return new Greeting(nextCounter.incrementAndGet(), String.format(template, imie, zawiera));
+	}
+
+
+
